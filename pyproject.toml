@@ -1,5 +1,5 @@
 [project]
-name = "diary-guider"
+name = "diaryguider"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
@@ -7,23 +7,23 @@ authors = [
 ]
 dependencies = [
     "flask>=3.0.1",
+    "langchain>=0.0.27",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
 
 [project.scripts]
-hello = "diary_guider:hello"
+
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
 
 [tool.rye]
 managed = true
 dev-dependencies = []
+virtual = true
 
-[tool.hatch.metadata]
-allow-direct-references = true
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/diary_guider"]
+[tool.rye.scripts]
+devserver = "flask run --app diary_guider --debug"
