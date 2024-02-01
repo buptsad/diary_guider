@@ -13,17 +13,25 @@ def login():
         
         user = User.query.filter_by(email=email).first()
         
+        print('POST')
         if user:
             if check_password_hash(user.password, password):
+                print("password correct")
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('auth.profile'))
+                return redirect(url_for('views.auth.profile'))
             else:
+                print("password incorrect")
                 flash('Incorrect password, try again.', category='error')
         else:
+            print("email does not exist")
             flash('Email does not exist.', category='error')
     else:
+        print("GET")
         if current_user.is_authenticated:
-            return redirect(url_for('auth.profile'))
-    
+            print("user is authenticated")
+            print(url_for('views.auth.profile'))
+            return redirect(url_for('views.auth.profile'))
+        
+    print("rendering template")
     return render_template("login.html", user=current_user)

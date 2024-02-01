@@ -5,3 +5,4 @@ auth = Blueprint('auth', __name__, url_prefix='/')
 from . import login
 from . import register
 from . import logout
+from . import profile

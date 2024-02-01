@@ -32,5 +32,5 @@ virtual = true
 [tool.rye.scripts]
 devserver = "flask --app diaryguider run --debug"
 dbmigrate = "flask --app diaryguider db migrate"
-dbupdate = "flask --app diaryguider db upgrade"
+dbupgrade = "flask --app diaryguider db upgrade"
 dbstamphead = "flask --app diaryguider db stamp head"
