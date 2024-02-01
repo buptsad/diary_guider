@@ -8,6 +8,10 @@ authors = [
 dependencies = [
     "flask>=3.0.1",
     "langchain>=0.0.27",
+    "flask-sqlalchemy>=3.1.1",
+    "flask-mysqldb>=2.0.0",
+    "Flask-Migrate>=4.0.5",
+    "Flask-Login>=0.6.3",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -26,4 +30,7 @@ virtual = true
 
 
 [tool.rye.scripts]
-devserver = "flask run --app diary_guider --debug"
+devserver = "flask --app diaryguider run --debug"
+dbmigrate = "flask --app diaryguider db migrate"
+dbupdate = "flask --app diaryguider db upgrade"
+dbstamphead = "flask --app diaryguider db stamp head"

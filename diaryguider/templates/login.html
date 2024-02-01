@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <h1>登录</h1>
+    <form action="/login" method="post">
+        邮箱
+        <input type="text" name="email" placeholder="邮箱" {% if user %}value="{{ user.email }}"{% endif %}>
+        密码
+        <input type="password" name="password" placeholder="密码">
+        <input type="submit" value="登录">
+    </form>
+    <a href="/register">注册</a>
+</html>

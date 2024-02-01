@@ -1,10 +1,15 @@
-from diaryguider import app
-from flask import render_template
+from flask import render_template,Blueprint
 
-@app.route("/")
+from diaryguider.auth import auth
+
+views = Blueprint('views', __name__)
+
+views.register_blueprint(auth)
+
+@views.route("/")
 def home():
     return render_template("home.html")
 
-@app.route("/about")
+@views.route("/about")
 def about():
-    return "<p>This is my about page!</p>"
+    return render_template("about.html")
