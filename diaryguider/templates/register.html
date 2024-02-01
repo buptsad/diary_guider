@@ -18,4 +18,10 @@
         <li><input type="submit" value="注册"></li>
     </form>
     <a href="/login">登录</a>
+</body>
+<script>
+    {% if user %}{% for message in get_flashed_messages() %}
+    alert("{{ message }}");
+    {% endfor %}{% endif %}
+</script>
 </html>

@@ -22,7 +22,7 @@ def create_app():
     
     from diaryguider.extensions import login_manager
     login_manager.init_app(app)
-    login_manager.login_view = 'auth.login'
+    login_manager.login_view = 'views.auth.login'
 
     from diaryguider.views import views
     app.register_blueprint(views)
